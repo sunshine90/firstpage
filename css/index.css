@@ -1,0 +1,14 @@
+.content {
+  padding: 15px;
+}
+.content .list_bar {
+  padding: 10px 0;
+}
+.content .subheading {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.content .subcontainer {
+  padding-left: 20px;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>three times handshake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700'>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+	<link rel="stylesheet" href="css/index.css">
+
+  </head>
+  <body>
+  <div class="container">
+  	<!-- header -->
+  	<div class="page-head" id="page_head">
+  		
+      <h1 class="project-name">对三次握手的理解</h1>
+      <h2 class="project-tagline"></h2>
+    </div>
+
+	<!-- content -->
+	<div class="content">
+		<a href="index.html" class="btn btn-default returnback">返回首页</a>
+		<div class="list_bar">
+			<p class="subheading">第一次握手</p>
+			<div class="subcontainer">
+				<div class="pls">
+					建立链接的时候，客户端发送一个同步（syn）请求的包到服务器，进入一个等待服务器响应的状态（syn_sent），会有一个专定的一个同步序列编号来识别本次链接（ <code> synchronize sequence numbers </code> ）；
+				</div>
+				
+				<p>解释：</p>
+				<div>
+					<code> syn（synchronous）:</code>是TCP/IP链接时候的握手信号。 
+					<code>ACK (Acknowledgement）:</code>是对发送数据的确认接受情况。
+				</div>
+				<p>比方：</p>
+					<p class="olm">我：客户端</p>
+					<p class="olm">你：服务器端</p>
+				<div class="pls">
+					链接的过程：（我要给你一个包裹的过程）相当于客户端对服务器端链接的过程；
+					我面对着你（发送的方向地址ip以及端口），大声叫你“张三有包裹”（这个过程syn求服务器响应，并进入等待响应状态（
+					<code>SYN_SENT</code>）），同时我把我的工号（SYN序列号编码）给你发送过去，等你的响应，我再送包裹给你。
+				</div>
+			</div>
+		</div>
+		
+		<div class="list_bar">
+			<p class="subheading">第二次握手</p>
+			<div class="subcontainer">
+				<p>建立链接后，客户端向服务器端发送数据，服务器端进入接受SYN包的状态（SYN_RECV）；</p>
+				<dl>
+					<dt><p>解释：</p></dt>
+					<dd class="pll">SYN_RECV：服务器打开链接后，接收到SYN并发送了响应(ACK)，再进一步进入接受信息接受的状态；</dd>
+					<dt class="mts"><p>接受信息的过程</p></dt>
+					<dd class="pll">
+						这个时候我就一直等你的回答有没有听到，如果你听到了就回答到“我听到了，你是不是xx快递公司的给我看看你的工号”（就相当于服务器接受到了请求的响应，并对该同步序列号进行验证），验证你是邮递员之后我在说“你给我拿过来嘛”（并作出了一个响应，服务器也发送一个SYN和一个应答返回给客服端（SYN+ACK）），然后我就听到了你的话就说“要得，我马上给你拿过来”（这个时候客户端对服务器端的响应得到了接受，并作出了响应（ACK）），现在我就准备把我放在地上的包裹拿起来准备送到你那里去。（进入SYN_RECV的状态，等待获取数据）。
+					</dd>
+				</dl>
+			</div>
+		</div>
+		
+		<div class="list_bar">
+			<p class="subheading">第三次握手</p>
+			<div class="subcontainer">
+				<p>客户端收到服务器的SYN+ACK包，向服务器发送请求包ACK，发送完成后，客户端与服务器进入ESTABLISHED状态，完成三次握手、</p>
+				<dl>
+					<dt><p class="mvs">解释</p></dt>
+					<dd class="pll"><code>ESTABLISHED:</code>TCP链接成功</dd>
+					<dt><p class="mvs">建立联系</p></dt>
+					<dd class="pll">确定你是接受包裹的人后（建立好链接后，TCP连接成功），我就把包裹重公司运送到你的地方（最后完成数据的发送）；
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+  </div>
+</body>
+</html>
